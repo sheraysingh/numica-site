@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Numica — support &amp; information</title>
+<meta name="description" content="Support, privacy and account information for Numica, a maths practice app for children in Grades 1 to 10.">
+<style>
+  :root {
+    --ground: #F4F7EC;
+    --card: #FFFFFF;
+    --ink: #2A2140;
+    --muted: #5A5468;
+    --wood: #6B4523;
+    --link: #6E4620;
+    --orange: #B94F16;
+    --mint: #DFF5EA;
+    --mint-ink: #14563B;
+    --sand: #EDE4D6;
+    --card-shadow: 0 6px 18px rgba(70, 45, 20, .12);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: Nunito, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 28px 20px 72px;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .mark {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 auto;
+  }
+
+  h1 {
+    font-family: "Fredoka", Nunito, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--wood);
+  }
+
+  .tagline {
+    color: var(--muted);
+    margin: 0 0 28px;
+    font-size: 1rem;
+  }
+
+  section.card {
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    padding: 22px 22px 24px;
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    font-family: "Fredoka", Nunito, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin: 0 0 10px;
+    color: var(--wood);
+  }
+
+  p { margin: 0 0 12px; }
+  p:last-child { margin-bottom: 0; }
+
+  a {
+    color: var(--link);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  a:visited { color: var(--link); }
+
+  .email-plain {
+    display: inline-block;
+    font-weight: 700;
+    background: var(--sand);
+    border-radius: 10px;
+    padding: 2px 8px;
+    color: var(--ink);
+  }
+
+  ol {
+    margin: 0;
+    padding-left: 1.3em;
+  }
+
+  ol li { margin-bottom: 8px; }
+  ol li:last-child { margin-bottom: 0; }
+
+  .pin-note {
+    background: var(--sand);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  .status-pill {
+    display: inline-block;
+    background: var(--mint);
+    color: var(--mint-ink);
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 999px;
+    padding: 4px 12px;
+    margin-bottom: 10px;
+  }
+
+  .privacy-note {
+    background: var(--sand);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 28px;
+  }
+
+  @media (max-width: 380px) {
+    main { padding: 20px 14px 56px; }
+    section.card { padding: 18px 16px 20px; }
+    h1 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <circle cx="24" cy="24" r="22" fill="#DFF5EA" stroke="#6B4523" stroke-width="2.2"/>
+      <path d="M24 14v20M14 24h20" stroke="#B94F16" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <h1>Numica — support &amp; information</h1>
+  </header>
+  <p class="tagline">Numica does not collect information through this page.</p>
+
+  <section class="card" aria-labelledby="what-is-numica">
+    <h2 id="what-is-numica">What Numica is</h2>
+    <p>
+      Numica is a maths practice app for children in Grades 1 to 10, built around
+      Ontario's maths curriculum. A parent creates the family account and adds each
+      child; the child practises maths under it.
+    </p>
+  </section>
+
+  <section class="card" aria-labelledby="get-help">
+    <h2 id="get-help">How to get help</h2>
+    <p>
+      If something in the app is wrong, or you have a question, email us and a
+      person will read it:
+    </p>
+    <p>
+      <a href="mailto:sheray@gmail.com">Email sheray@gmail.com</a><br>
+      <span class="email-plain">sheray@gmail.com</span>
+    </p>
+  </section>
+
+  <section class="card" aria-labelledby="delete-account">
+    <h2 id="delete-account">Deleting your account and your children's data</h2>
+    <p>
+      You can permanently delete your family's account and everything under it —
+      every child's name and grade, all practice records, and any feedback you
+      sent — yourself, inside the app, at any time. There is no need to email us
+      first, and no grace period once you confirm.
+    </p>
+    <ol>
+      <li>Open Numica, go to your child's <strong>Profile</strong> tab, and tap <strong>Grown-ups &rsaquo;</strong> at the bottom.</li>
+      <li>Enter your parent PIN.</li>
+      <li>Open <strong>Settings</strong>.</li>
+      <li>Scroll to the bottom and choose <strong>Delete account and all data</strong>.</li>
+      <li>Confirm <strong>Delete everything</strong>.</li>
+    </ol>
+    <p class="pin-note">
+      This is behind your parent PIN on purpose, so a child cannot delete the
+      family's account by accident. If you have lost your PIN, the same Settings
+      screen offers a way back in through your email.
+    </p>
+  </section>
+
+  <section class="card" aria-labelledby="privacy">
+    <h2 id="privacy">Privacy policy</h2>
+    <p class="privacy-note">
+      Read the full policy here:
+      <a href="https://numica.dvi9.ca/privacy/">numica.dvi9.ca/privacy</a>
+    </p>
+    <p>
+      It explains exactly what Numica collects, why, where it is stored, and how
+      to erase it — the same steps as above.
+    </p>
+  </section>
+
+  <section class="card" aria-labelledby="buying">
+    <h2 id="buying">Buying something</h2>
+    <span class="status-pill">Nothing is for sale yet</span>
+    <p>
+      Numica does not sell a subscription or any purchase in this build. Any
+      screen in the app that mentions unlocking more content is not connected to
+      a live store yet — trying to buy anything currently tells you it is
+      unavailable, and no payment is taken.
+    </p>
+  </section>
+
+  <section class="card" aria-labelledby="collects">
+    <h2 id="collects">What this page collects</h2>
+    <p>
+      Numica does not collect information through this page. It has no form,
+      sign-in, analytics, advertising, cookies, scripts, or third-party assets.
+      GitHub Pages hosts the page and may process technical request data such as
+      an IP address for security. That data is not added to a Numica account.
+      The only action the page offers is opening your email app when you tap the
+      support email link.
+    </p>
+  </section>
+
+  <footer>
+    Numica — a maths practice app for children in Grades 1–10, Ontario curriculum.
+  </footer>
+
+</main>
+</body>
+</html>
