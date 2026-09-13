@@ -35,7 +35,7 @@ test('site only references local assets and provides basic accessibility hooks',
   assert.match(home, /\/assets\/screenshots\/welcome\.webp/);
   assert.match(home, /\/assets\/screenshots\/journey\.webp/);
   assert.match(home, /\/assets\/screenshots\/practice\.webp/);
-  assert.match(home, /real Numica screens from the current development build/);
+  assert.match(home, /real Numica screens from recent development builds/);
   assert.doesNotMatch(home, /\bbeaver\b/i);
 });
 
@@ -65,6 +65,9 @@ test('privacy page explains GitHub Pages hosting', async () => {
   assert.match(page, /GitHub Pages/);
   assert.match(page, /IP address/);
   assert.match(page, /Google or Apple/);
+  assert.match(page, /encrypted HTTPS connections/);
+  assert.match(page, /restrict each signed-in parent account to its own family records/);
+  assert.match(page, /does not store Google or Apple passwords/);
   assert.match(page, /does not currently offer purchases or subscriptions/);
   assert.match(page, /Delete account/);
   assert.match(page, /13 September 2026/);
