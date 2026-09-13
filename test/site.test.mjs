@@ -12,8 +12,8 @@ test('support page has working public details', async () => {
   const page = await read('index.html');
   assert.match(page, /mailto:sheray@gmail\.com/);
   assert.match(page, /href="\/privacy\//);
-  assert.match(page, /Delete account and all data/);
   assert.match(page, /not yet for sale or available in app stores/i);
+  assert.match(page, /href="\/delete-account\/"/);
   assert.match(page, /Ontario curriculum/);
   assert.match(page, /Grades 1–10/);
   assert.match(page, /Google or Apple/);
@@ -35,11 +35,24 @@ test('site only references local assets and provides basic accessibility hooks',
 });
 
 test('pages load no third-party assets', async () => {
-  for (const file of ['index.html', 'privacy/index.html', '404.html']) {
+  for (const file of ['index.html', 'privacy/index.html', 'delete-account/index.html', '404.html']) {
     const page = await read(file);
     assert.doesNotMatch(page, /<(?:img|script|link)[^>]+(?:src|href)=["']https?:/i);
     assert.doesNotMatch(page, /gtag\(|google-analytics|googletagmanager/i);
   }
+});
+
+test('account deletion page satisfies the public request route', async () => {
+  const page = await read('delete-account/index.html');
+  assert.match(page, /Delete account and all data/);
+  assert.match(page, /Delete everything/);
+  assert.match(page, /mailto:sheray@gmail\.com\?subject=Delete%20my%20Numica%20account/);
+  assert.match(page, /verify that you own the account/i);
+  assert.match(page, /within 30 days/i);
+  assert.match(page, /parent account email and parent PIN hash/i);
+  assert.match(page, /child’s first name and grade/i);
+  assert.match(page, /practice sessions, answers, topic progress, and mastery records/i);
+  assert.match(page, /does not delete your separate Google or Apple account/i);
 });
 
 test('privacy page explains GitHub Pages hosting', async () => {
