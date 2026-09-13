@@ -13,6 +13,7 @@ test('support page has working public details', async () => {
   assert.match(page, /mailto:sheray@gmail\.com/);
   assert.match(page, /href="\/privacy\//);
   assert.match(page, /Delete account and all data/);
+  assert.match(page, /not yet for sale or available in app stores/i);
   assert.match(page, /Ontario curriculum/);
   assert.match(page, /Grades 1–10/);
   assert.match(page, /Google or Apple/);
