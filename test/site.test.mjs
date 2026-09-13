@@ -26,12 +26,17 @@ test('support page has working public details', async () => {
 test('site only references local assets and provides basic accessibility hooks', async () => {
   const home = await read('index.html');
   const stylesheet = await read('styles.css');
-  assert.match(home, /src="\/assets\/numica-beaver\.png"/);
-  assert.match(home, /alt="Numica, the friendly beaver guide"/);
+  assert.match(home, /src="\/assets\/numica-guide\.png"/);
+  assert.match(home, /alt="Numica, the friendly maths guide"/);
   assert.match(home, /<main id="main">/);
   assert.match(home, /Skip to content/);
   assert.match(stylesheet, /:focus-visible/);
   assert.match(stylesheet, /prefers-reduced-motion/);
+  assert.match(home, /\/assets\/screenshots\/welcome\.webp/);
+  assert.match(home, /\/assets\/screenshots\/journey\.webp/);
+  assert.match(home, /\/assets\/screenshots\/practice\.webp/);
+  assert.match(home, /real Numica screens from the current development build/);
+  assert.doesNotMatch(home, /\bbeaver\b/i);
 });
 
 test('pages load no third-party assets', async () => {
