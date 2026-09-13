@@ -66,7 +66,7 @@ test('privacy page explains GitHub Pages hosting', async () => {
   assert.match(page, /IP address/);
   assert.match(page, /Google or Apple/);
   assert.match(page, /encrypted HTTPS connections/);
-  assert.match(page, /restrict each signed-in parent account to its own family records/);
+  assert.match(page, /access controls restrict each signed-in parent account to its own\s+family records/);
   assert.match(page, /does not store Google or Apple passwords/);
   assert.match(page, /does not currently offer purchases or subscriptions/);
   assert.match(page, /Delete account/);
