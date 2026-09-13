@@ -1,252 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Numica — support &amp; information</title>
-<meta name="description" content="Support, privacy and account information for Numica, a maths practice app for children in Grades 1 to 10.">
-<style>
-  :root {
-    --ground: #F4F7EC;
-    --card: #FFFFFF;
-    --ink: #2A2140;
-    --muted: #5A5468;
-    --wood: #6B4523;
-    --link: #6E4620;
-    --orange: #B94F16;
-    --mint: #DFF5EA;
-    --mint-ink: #14563B;
-    --sand: #EDE4D6;
-    --card-shadow: 0 6px 18px rgba(70, 45, 20, .12);
-  }
-
-  * { box-sizing: border-box; }
-
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    background: var(--ground);
-    color: var(--ink);
-    font-family: Nunito, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    font-size: 17px;
-  }
-
-  main {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 28px 20px 72px;
-  }
-
-  header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-
-  .mark {
-    width: 44px;
-    height: 44px;
-    flex: 0 0 auto;
-  }
-
-  h1 {
-    font-family: "Fredoka", Nunito, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin: 0;
-    color: var(--wood);
-  }
-
-  .tagline {
-    color: var(--muted);
-    margin: 0 0 28px;
-    font-size: 1rem;
-  }
-
-  section.card {
-    background: var(--card);
-    border-radius: 20px;
-    box-shadow: var(--card-shadow);
-    padding: 22px 22px 24px;
-    margin-bottom: 18px;
-  }
-
-  h2 {
-    font-family: "Fredoka", Nunito, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    font-size: 1.15rem;
-    margin: 0 0 10px;
-    color: var(--wood);
-  }
-
-  p { margin: 0 0 12px; }
-  p:last-child { margin-bottom: 0; }
-
-  a {
-    color: var(--link);
-    font-weight: 700;
-    text-decoration: underline;
-  }
-
-  a:visited { color: var(--link); }
-
-  .email-plain {
-    display: inline-block;
-    font-weight: 700;
-    background: var(--sand);
-    border-radius: 10px;
-    padding: 2px 8px;
-    color: var(--ink);
-  }
-
-  ol {
-    margin: 0;
-    padding-left: 1.3em;
-  }
-
-  ol li { margin-bottom: 8px; }
-  ol li:last-child { margin-bottom: 0; }
-
-  .pin-note {
-    background: var(--sand);
-    border-radius: 12px;
-    padding: 10px 14px;
-    margin-top: 12px;
-    font-size: 0.95rem;
-    color: var(--ink);
-  }
-
-  .status-pill {
-    display: inline-block;
-    background: var(--mint);
-    color: var(--mint-ink);
-    font-weight: 700;
-    font-size: 0.85rem;
-    border-radius: 999px;
-    padding: 4px 12px;
-    margin-bottom: 10px;
-  }
-
-  .privacy-note {
-    background: var(--sand);
-    border-radius: 12px;
-    padding: 12px 14px;
-    font-size: 0.95rem;
-  }
-
-  footer {
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.85rem;
-    margin-top: 28px;
-  }
-
-  @media (max-width: 380px) {
-    main { padding: 20px 14px 56px; }
-    section.card { padding: 18px 16px 20px; }
-    h1 { font-size: 1.3rem; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Numica is Ontario-curriculum-aligned maths practice for children in Grades 1 to 10, with clear progress for parents.">
+  <title>Numica | Ontario maths practice for Grades 1–10</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<main>
-
-  <header>
-    <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <circle cx="24" cy="24" r="22" fill="#DFF5EA" stroke="#6B4523" stroke-width="2.2"/>
-      <path d="M24 14v20M14 24h20" stroke="#B94F16" stroke-width="2.2" stroke-linecap="round"/>
-    </svg>
-    <h1>Numica — support &amp; information</h1>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Numica home"><span class="brand-mark" aria-hidden="true">N</span><span>Numica</span></a>
+    <nav aria-label="Main navigation"><a href="#how-it-works">How it works</a><a href="#parents">For parents</a><a href="/privacy/">Privacy</a></nav>
   </header>
-  <p class="tagline">Numica does not collect information through this page.</p>
-
-  <section class="card" aria-labelledby="what-is-numica">
-    <h2 id="what-is-numica">What Numica is</h2>
-    <p>
-      Numica is a maths practice app for children in Grades 1 to 10, built around
-      Ontario's maths curriculum. A parent creates the family account and adds each
-      child; the child practises maths under it.
-    </p>
-  </section>
-
-  <section class="card" aria-labelledby="get-help">
-    <h2 id="get-help">How to get help</h2>
-    <p>
-      If something in the app is wrong, or you have a question, email us and a
-      person will read it:
-    </p>
-    <p>
-      <a href="mailto:sheray@gmail.com">Email sheray@gmail.com</a><br>
-      <span class="email-plain">sheray@gmail.com</span>
-    </p>
-  </section>
-
-  <section class="card" aria-labelledby="delete-account">
-    <h2 id="delete-account">Deleting your account and your children's data</h2>
-    <p>
-      You can permanently delete your family's account and everything under it —
-      every child's name and grade, all practice records, and any feedback you
-      sent — yourself, inside the app, at any time. There is no need to email us
-      first, and no grace period once you confirm.
-    </p>
-    <ol>
-      <li>Open Numica, go to your child's <strong>Profile</strong> tab, and tap <strong>Grown-ups &rsaquo;</strong> at the bottom.</li>
-      <li>Enter your parent PIN.</li>
-      <li>Open <strong>Settings</strong>.</li>
-      <li>Scroll to the bottom and choose <strong>Delete account and all data</strong>.</li>
-      <li>Confirm <strong>Delete everything</strong>.</li>
-    </ol>
-    <p class="pin-note">
-      This is behind your parent PIN on purpose, so a child cannot delete the
-      family's account by accident. If you have lost your PIN, the same Settings
-      screen offers a way back in through your email.
-    </p>
-  </section>
-
-  <section class="card" aria-labelledby="privacy">
-    <h2 id="privacy">Privacy policy</h2>
-    <p class="privacy-note">
-      Read the full policy here:
-      <a href="https://numica.dvi9.ca/privacy/">numica.dvi9.ca/privacy</a>
-    </p>
-    <p>
-      It explains exactly what Numica collects, why, where it is stored, and how
-      to erase it — the same steps as above.
-    </p>
-  </section>
-
-  <section class="card" aria-labelledby="buying">
-    <h2 id="buying">Buying something</h2>
-    <span class="status-pill">Nothing is for sale yet</span>
-    <p>
-      Numica does not sell a subscription or any purchase in this build. Any
-      screen in the app that mentions unlocking more content is not connected to
-      a live store yet — trying to buy anything currently tells you it is
-      unavailable, and no payment is taken.
-    </p>
-  </section>
-
-  <section class="card" aria-labelledby="collects">
-    <h2 id="collects">What this page collects</h2>
-    <p>
-      Numica does not collect information through this page. It has no form,
-      sign-in, analytics, advertising, cookies, scripts, or third-party assets.
-      GitHub Pages hosts the page and may process technical request data such as
-      an IP address for security. That data is not added to a Numica account.
-      The only action the page offers is opening your email app when you tap the
-      support email link.
-    </p>
-  </section>
-
-  <footer>
-    Numica — a maths practice app for children in Grades 1–10, Ontario curriculum.
-  </footer>
-
-</main>
-</body>
-</html>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Ontario curriculum · Grades 1–10</p>
+        <h1>Maths practice that follows your child’s school year.</h1>
+        <p class="lede">Numica gives children a clear path through Ontario maths, one topic at a time. You can see what they practised and how it’s going.</p>
+        <div class="hero-actions"><a class="button" href="#how-it-works">See how Numica works</a><a class="text-link" href="mailto:sheray@gmail.com">Ask a question <span aria-hidden="true">→</span></a></div>
+        <p class="quiet">A companion to school. Numica is not affiliated with the Ontario Ministry of Education or any school board.</p>
+      </div>
+      <div class="hero-art">
+        <div class="sun" aria-hidden="true"></div><div class="hill hill-one" aria-hidden="true"></div><div class="hill hill-two" aria-hidden="true"></div><div class="tree tree-one" aria-hidden="true"></div><div class="tree tree-two" aria-hidden="true"></div><div class="trail" aria-hidden="true"></div>
+        <div class="math-card card-one" aria-hidden="true">12 + 8</div><div class="math-card card-two" aria-hidden="true">¾</div>
+        <img src="/assets/numica-beaver.png" width="122" height="145" alt="Numica, the friendly beaver guide">
+      </div>
+    </section>
+    <section class="proof" aria-label="What Numica offers"><article><strong>Grades 1–10</strong><span>Ontario-aligned maths practice</span></article><article><strong>One topic at a time</strong><span>A calm, structured practice path</span></article><article><strong>Parent visibility</strong><span>Progress in plain language</span></article></section>
+    <section class="section" id="how-it-works">
+      <div class="section-heading"><p class="eyebrow">A path children can follow</p><h2>Practice has a beginning, a next step, and a reason.</h2><p>Each topic starts with an explanation and moves through short practice sessions. Children meet new questions as they go, while the path stays tied to their grade’s curriculum.</p></div>
+      <ol class="steps"><li><span class="step-number">01</span><h3>Find the right topic</h3><p>Topics are arranged by grade and curriculum strand, so practice is connected to what school asks for.</p></li><li><span class="step-number">02</span><h3>Learn, then practise</h3><p>A short lesson leads into a focused set of questions. Helpful hints guide a child toward a method when they need one.</p></li><li><span class="step-number">03</span><h3>See progress grow</h3><p>Children earn crowns as they complete a topic. Parents can look beyond the celebration and see the activity behind it.</p></li></ol>
+    </section>
+    <section class="curriculum"><div><p class="eyebrow">Made for Ontario families</p><h2>The parts of maths that matter in each grade.</h2><p>Numica covers the main Ontario maths strands: Number, Algebra, Data, Spatial Sense, and Financial Literacy. It supports Grade 10 academic and applied maths courses too.</p><p>It is designed for practice at home, alongside the learning that happens at school.</p></div><ul class="strand-list" aria-label="Ontario mathematics strands"><li><span class="dot number"></span>Number</li><li><span class="dot algebra"></span>Algebra</li><li><span class="dot data"></span>Data</li><li><span class="dot spatial"></span>Spatial Sense</li><li><span class="dot money"></span>Financial Literacy</li></ul></section>
+    <section class="section parent-section" id="parents"><div class="section-heading"><p class="eyebrow">For parents</p><h2>Stay close to the learning without standing over their shoulder.</h2></div><div class="parent-grid"><article class="feature-card"><span class="feature-icon" aria-hidden="true">↗</span><h3>Progress you can understand</h3><p>See recent activity, progress by topic, and curriculum coverage in clear language.</p></article><article class="feature-card"><span class="feature-icon" aria-hidden="true">⌁</span><h3>Built around your family</h3><p>Each child has their own grade, path, and progress under the family account.</p></article><article class="feature-card"><span class="feature-icon" aria-hidden="true">⌾</span><h3>Grown-up controls</h3><p>A four-digit parent PIN protects settings and parent pages from curious little hands.</p></article></div></section>
+    <section class="privacy-callout" aria-labelledby="privacy-title"><div><p class="eyebrow">Private by design</p><h2 id="privacy-title">Children practise. Parents stay in control.</h2><p>Numica does not show ads or use tracking. A child’s information is limited to what the app needs to provide their grade-level practice and progress. Parent sign-in can use Google or Apple; those providers handle the sign-in step and do not receive children’s practice records.</p></div><a class="button button-light" href="/privacy/">Read the privacy policy</a></section>
+    <section class="support-section" aria-labelledby="support-title"><p class="eyebrow">Support</p><h2 id="support-title">Need help with Numica?</h2><p>Email <a href="mailto:sheray@gmail.com">sheray@gmail.com</a> and a person will read your message.</p><p>To delete an account, open the app and go to <strong>Profile → Grown-ups → Settings → Delete account and all data</strong>. This permanently deletes the family account and its children’s data. If you cannot access the app, email support.</p></section>
+  </main>
+  <footer class="site-footer"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">N</span><span>Numica</span></a><div><a href="/privacy/">Privacy policy</a><a href="mailto:sheray@gmail.com">Support</a></div><p>© 2026 Numica</p></footer>
+</body></html>
