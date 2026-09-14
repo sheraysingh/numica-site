@@ -35,13 +35,13 @@ test('site only references local assets and provides basic accessibility hooks',
   assert.match(home, /\/assets\/screenshots\/welcome\.webp/);
   assert.match(home, /\/assets\/screenshots\/journey\.webp/);
   assert.match(home, /\/assets\/screenshots\/practice\.webp/);
-  for (const screenshot of ['camp', 'profile', 'parent-overview', 'children', 'progress-report']) {
+  for (const screenshot of ['sign-in', 'camp', 'profile', 'parent-overview', 'children', 'progress-report']) {
     assert.match(home, new RegExp(`/assets/screenshots/${screenshot}\\.webp`));
     assert.ok((await readFile(new URL(`../assets/screenshots/${screenshot}.webp`, import.meta.url))).length > 20_000);
   }
-  assert.equal((home.match(/class="phone-frame"/g) ?? []).length, 8);
+  assert.equal((home.match(/class="phone-frame"/g) ?? []).length, 9);
   assert.match(home, /The parent view/);
-  assert.match(home, /progress report covers questions, accuracy, time, activity, and streaks/i);
+  assert.match(home, /real demo sitting fills the report with questions, accuracy, time, activity, and streaks/i);
   assert.match(home, /real Numica screens from recent development builds/);
   assert.doesNotMatch(home, /\bbeaver\b/i);
 });
