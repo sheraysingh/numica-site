@@ -53,13 +53,16 @@ test('site only references local assets and provides basic accessibility hooks',
   assert.match(home, /\/assets\/screenshots\/welcome\.webp/);
   assert.match(home, /\/assets\/screenshots\/journey\.webp/);
   assert.match(home, /\/assets\/screenshots\/practice\.webp/);
-  for (const screenshot of ['sign-in', 'camp', 'profile', 'parent-overview', 'settings', 'progress-report']) {
+  for (const screenshot of ['sign-in', 'camp', 'profile', 'parent-progress', 'children', 'settings', 'progress-report']) {
     assert.match(home, new RegExp(`/assets/screenshots/${screenshot}\\.webp`));
     assert.ok((await readFile(new URL(`../assets/screenshots/${screenshot}.webp`, import.meta.url))).length > 20_000);
   }
-  assert.equal((home.match(/class="phone-frame"/g) ?? []).length, 9);
+  assert.equal((home.match(/class="phone-frame"/g) ?? []).length, 10);
   assert.match(home, /The parent view/);
-  assert.match(home, /privacy-safe demo month shows questions, accuracy, time, active days, and honest streaks/i);
+  assert.match(home, /Mia&rsquo;s week shows today&rsquo;s work, practice time, accuracy, and recent topics/i);
+  assert.match(home, /Each child keeps their own grade, colour, learning path, daily goal, and progress/i);
+  assert.match(home, /The complete Settings page keeps family, PIN, sound, subscription, feedback, account, and data controls together/i);
+  assert.doesNotMatch(home, /parent-overview\.webp/);
   assert.match(home, /real Numica screens from recent development builds/);
   assert.doesNotMatch(home, /\bbeaver\b/i);
 });
