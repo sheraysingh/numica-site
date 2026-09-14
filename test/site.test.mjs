@@ -50,6 +50,8 @@ test('site only references local assets and provides basic accessibility hooks',
   assert.match(home, /Skip to content/);
   assert.match(stylesheet, /:focus-visible/);
   assert.match(stylesheet, /prefers-reduced-motion/);
+  assert.match(stylesheet, /@keyframes parent-page-scroll/);
+  assert.match(stylesheet, /animation:none;object-position:center top/);
   assert.match(home, /\/assets\/screenshots\/welcome\.webp/);
   assert.match(home, /\/assets\/screenshots\/journey\.webp/);
   assert.match(home, /\/assets\/screenshots\/practice\.webp/);
