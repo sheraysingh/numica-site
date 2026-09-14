@@ -25,6 +25,19 @@ test('support page has working public details', async () => {
   assert.doesNotMatch(page, /<form|<input|<script/i);
 });
 
+test("shows every grade's real practice depth without calling software tests questions", async () => {
+  const page = await read('index.html');
+  assert.equal((page.match(/class="grade-practice-card(?:\s|\")/g) ?? []).length, 10);
+  assert.match(page, /See the practice depth in every grade\./);
+  assert.match(page, /curriculum-linked topics/);
+  assert.match(page, /authored question types/);
+  assert.match(page, /available variations/);
+  assert.match(page, /focused sets of 10/);
+  assert.match(page, /Academic <span>MPM2D<\/span>/);
+  assert.match(page, /Applied <span>MFM2P<\/span>/);
+  assert.doesNotMatch(page, /150,?000 questions/i);
+});
+
 test('site only references local assets and provides basic accessibility hooks', async () => {
   const home = await read('index.html');
   const stylesheet = await read('styles.css');
