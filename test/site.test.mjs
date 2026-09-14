@@ -19,6 +19,8 @@ test('support page has working public details', async () => {
   assert.match(page, /Google or Apple/);
   assert.match(page, /four-digit parent PIN/);
   assert.match(page, /not affiliated with the Ontario Ministry of Education or any school board/);
+  assert.match(page, /Built for Ontario math, Grades 1 to 10/);
+  assert.match(page, /<strong>Ontario math<\/strong>/);
   assert.doesNotMatch(page, /\$\d|buy now|start your free trial/i);
   assert.doesNotMatch(page, /<form|<input|<script/i);
 });
