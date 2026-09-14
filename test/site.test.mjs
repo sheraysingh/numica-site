@@ -35,9 +35,9 @@ test("shows every grade's real practice depth without calling software tests que
   assert.match(page, /focused sets of 10/);
   assert.match(page, /Academic <span>MPM2D<\/span>/);
   assert.match(page, /Applied <span>MFM2P<\/span>/);
-  assert.match(page, /src="\.\/assets\/practice-depth-infographic\.png"/);
-  assert.match(page, /Illustrated forest map showing Grades 1 to 10/);
-  assert.ok((await readFile(new URL('../assets/practice-depth-infographic.png', import.meta.url))).length > 100_000);
+  assert.match(page, /src="\.\/assets\/practice-depth-infographic-v2\.png"/);
+  assert.match(page, /Illustrated forest map showing a selected grade branching into curriculum topics/);
+  assert.ok((await readFile(new URL('../assets/practice-depth-infographic-v2.png', import.meta.url))).length > 100_000);
   assert.doesNotMatch(page, /150,?000 questions/i);
 });
 
