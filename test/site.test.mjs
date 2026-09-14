@@ -11,9 +11,9 @@ test('custom domain is exact', async () => {
 test('support page has working public details', async () => {
   const page = await read('index.html');
   assert.match(page, /mailto:sheray@gmail\.com/);
-  assert.match(page, /href="\/privacy\//);
+  assert.match(page, /href="(?:\.\/|\/)privacy\//);
   assert.match(page, /not yet for sale or available in app stores/i);
-  assert.match(page, /href="\/delete-account\/"/);
+  assert.match(page, /href="(?:\.\/|\/)delete-account\/"/);
   assert.match(page, /Ontario curriculum/);
   assert.match(page, /Grades 1–10/);
   assert.match(page, /Google or Apple/);
@@ -41,7 +41,7 @@ test("shows every grade's real practice depth without calling software tests que
 test('site only references local assets and provides basic accessibility hooks', async () => {
   const home = await read('index.html');
   const stylesheet = await read('styles.css');
-  assert.match(home, /src="\/assets\/numica-guide\.png"/);
+  assert.match(home, /src="(?:\.\/|\/)assets\/numica-guide\.png"/);
   assert.match(home, /alt="Numica, the friendly maths guide"/);
   assert.match(home, /<main id="main">/);
   assert.match(home, /Skip to content/);
