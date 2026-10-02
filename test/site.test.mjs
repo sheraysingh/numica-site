@@ -133,3 +133,19 @@ test('privacy page describes payments truthfully', async () => {
   assert.match(page, /also deletes your customer record at RevenueCat/);
   assert.match(page, /does not cancel your App Store or Google Play\s+subscription/);
 });
+
+test('no page says "maths"; Ontario says "math"', async () => {
+  const { readdir } = await import('node:fs/promises');
+  const pages = [];
+  const walk = async (dir) => {
+    for (const e of await readdir(new URL(`../${dir}`, import.meta.url), { withFileTypes: true })) {
+      if (['node_modules', '.git', 'test'].includes(e.name)) continue;
+      const rel = dir ? `${dir}/${e.name}` : e.name;
+      if (e.isDirectory()) await walk(rel);
+      else if (/\.(html|xml|txt|webmanifest|json|css|js|mjs)$/.test(e.name)) pages.push(rel);
+    }
+  };
+  await walk('');
+  assert.ok(pages.some((p) => p === 'privacy/index.html') && pages.some((p) => p === 'index.html'), 'scan found the pages');
+  for (const f of pages) assert.doesNotMatch(await read(f), /\bmaths\b/i, f);
+});
