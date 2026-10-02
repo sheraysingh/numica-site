@@ -8,13 +8,18 @@ test('custom domain is exact', async () => {
   assert.equal((await read('CNAME')).trim(), 'numica.dvi9.ca');
 });
 
+test('no page has pre-launch wording', async () => {
+  for (const f of ['index.html', 'privacy/index.html', 'delete-account/index.html', '404.html']) {
+    const page = await read(f);
+    assert.doesNotMatch(page, /currently in testing|coming (?:soon|to the)|not available to download|in development|development builds|beta|pre-?launch/i, f);
+  }
+});
+
 test('support page has working public details', async () => {
   const page = await read('index.html');
   assert.match(page, /mailto:sheray@gmail\.com/);
   assert.match(page, /href="(?:\.\/|\/)privacy\//);
-  assert.match(page, /Currently in testing\./);
-  assert.match(page, /coming to the App Store and Google Play in Canada/);
-  assert.match(page, /not available to download yet/);
+  assert.match(page, /For families in Canada\./);
   assert.doesNotMatch(page, /not yet for sale|now available|available (?:now )?(?:on|in) the App Store|download (?:it )?now/i);
   assert.doesNotMatch(page, /\bmaths\b/i);
   assert.match(page, /<title>Numica \| Ontario math practice for Grades 1–10<\/title>/);
