@@ -28,6 +28,9 @@
 Approved by the owner, 2 September 2026. Every claim below was checked
 against the app's code and database schema on 20 August 2026. If the app
 changes, this document must change with it.
+<br><br>
+The subscription and payment text was added on 1 October 2026 and
+checked against the app's code and database schema on that date.
 </div>
 
 <p>Numica is a maths practice app for children in Grades 1&ndash;10, following
@@ -79,14 +82,42 @@ sits behind the parent PIN.</p>
 
 <h2>Payments</h2>
 
-<p>Numica does not currently offer purchases or subscriptions. If that changes,
-this policy will be updated before payments are offered.</p>
+<p>A Numica subscription is bought through Apple's App Store or Google Play.
+Apple or Google takes the payment. Numica never sees your card or bank
+details.</p>
+
+<p>To know whether your family has paid, Numica uses
+<strong>RevenueCat</strong>, a payment processor that checks store purchases
+for apps. RevenueCat holds:</p>
+<ul>
+  <li>your Numica account number (a random code, not your email or name);</li>
+  <li>the store's record of the purchase: which subscription, which store,
+  the transaction numbers, and when it started, renews, ends or was
+  refunded;</li>
+  <li>basic technical details its software sends from the device, such as
+  the app version and the kind of device.</li>
+</ul>
+<p>RevenueCat does not receive your email address, your PIN, or anything
+about your children.</p>
+
+<p>While your purchase is being matched to your account, Numica's own
+database also keeps the store transaction number the purchase sheet
+returned, linked to your account, so the payment reaches the right family.
+We keep it for up to 7 days after it is confirmed, or 1 day if it is never
+confirmed, then delete it.</p>
+
+<p>Numica's own database keeps the matching subscription record: which store
+and which purchase, and the date your access is paid until. It is used only to
+turn access on and off.</p>
 
 <h2>Where your information lives</h2>
 
-<p>Everything is stored in Numica's own database, hosted on Supabase, a cloud
-database service. There is no second copy anywhere else and no other company
-receives your data to analyse or use.</p>
+<p>Your family's information is stored in Numica's own database, hosted on
+Supabase, a cloud database service. The other companies that handle any of it
+do so only to make the app run &mdash; delivering our emails, signing you in,
+and taking and checking subscription payments &mdash; and are listed under
+<em>Who can see your information</em>. No other company receives your data
+to analyse or use.</p>
 
 <h2>No ads, no tracking</h2>
 
@@ -128,6 +159,11 @@ all are the services that make the app run:</p>
   <li><strong>Google or Apple</strong> &mdash; handles sign-in when you choose
   that provider. Numica receives the identity details needed to recognize your
   account; the provider does not receive your children's practice records.</li>
+  <li><strong>RevenueCat</strong> &mdash; a payment processor that checks
+  App Store and Google Play subscriptions for Numica, as described under
+  <em>Payments</em>.</li>
+  <li><strong>Apple or Google</strong> &mdash; takes the payment when you
+  subscribe, under your own App Store or Google Play account.</li>
 </ul>
 
 <p>These services handle data only to provide their stated service to us.</p>
@@ -166,7 +202,18 @@ the service is limited to authorized administration.</p>
 <h2>How long we keep it</h2>
 
 <p>As long as your account exists, and no longer. There are no backups you
-would need to chase separately: deleting your account deletes everything.</p>
+would need to chase separately: deleting your account deletes everything,
+with one narrow exception for a subscription, described next.</p>
+
+<p>After account deletion, we retain a restricted record of the purchase's
+app, store, environment and original transaction identifier, without the link
+to your Numica account or your children's data, solely to prevent reuse by
+another account and only for as long as necessary for that purpose.</p>
+
+<p>We delete that record at least 12 months after the subscription last
+expired or was refunded, whichever is later. While the store subscription is still running,
+or the store is still trying to collect a payment, the record is kept, because
+the purchase could still be reused.</p>
 
 <h2>Deleting everything</h2>
 
@@ -184,6 +231,15 @@ under it &mdash; your email, your PIN, every child's name and grade, all
 practice records, and any feedback you sent. There
 is no grace period and no way back; the deletion runs in the database itself
 and cascades through every table that holds your family's data.</p>
+
+<p>Deleting your account also deletes your customer record at RevenueCat.
+The only thing kept is the restricted purchase record described under
+<em>How long we keep it</em>.</p>
+
+<p>Deleting your Numica account does not cancel your App Store or Google Play
+subscription, and a new Numica account cannot restore that purchase. To stop
+paying, cancel the subscription in your App Store or Google Play account
+settings.</p>
 
 <h2>Your rights</h2>
 
@@ -205,7 +261,7 @@ quietly widen what we collect.</p>
 
 <hr>
 
-<p><em>Last updated: <strong>13 September 2026</strong></em></p>
+<p><em>Last updated: <strong>1 October 2026</strong></em></p>
 
 </main>
 <footer class="site-footer"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">N</span><span>Numica</span></a><div><a href="/">About</a><a href="/delete-account/">Delete account</a><a href="mailto:sheray@gmail.com">Support</a></div><p>© 2026 Numica</p></footer>
