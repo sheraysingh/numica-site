@@ -8,11 +8,21 @@ test('custom domain is exact', async () => {
   assert.equal((await read('CNAME')).trim(), 'numica.dvi9.ca');
 });
 
+test('no page has pre-launch wording', async () => {
+  for (const f of ['index.html', 'privacy/index.html', 'delete-account/index.html', '404.html']) {
+    const page = await read(f);
+    assert.doesNotMatch(page, /currently in testing|coming (?:soon|to the)|not available to download|in development|development builds|beta|pre-?launch/i, f);
+  }
+});
+
 test('support page has working public details', async () => {
   const page = await read('index.html');
   assert.match(page, /mailto:sheray@gmail\.com/);
   assert.match(page, /href="(?:\.\/|\/)privacy\//);
-  assert.match(page, /not yet for sale or available in app stores/i);
+  assert.match(page, /For families in Canada\./);
+  assert.doesNotMatch(page, /not yet for sale|now available|available (?:now )?(?:on|in) the App Store|download (?:it )?now/i);
+  assert.doesNotMatch(page, /\bmaths\b/i);
+  assert.match(page, /<title>Numica \| Ontario math practice for Grades 1–10<\/title>/);
   assert.match(page, /href="(?:\.\/|\/)delete-account\/"/);
   assert.match(page, /Ontario curriculum/);
   assert.match(page, /Grades 1–10/);
@@ -88,6 +98,11 @@ test('account deletion page satisfies the public request route', async () => {
   assert.match(page, /child’s first name and grade/i);
   assert.match(page, /practice sessions, answers, topic progress, and mastery records/i);
   assert.match(page, /does not delete your separate Google or Apple account/i);
+  assert.doesNotMatch(page, /does not currently offer purchases or subscriptions/);
+  assert.match(page, /does not cancel your App Store or Google Play subscription/);
+  assert.match(page, /cancel the subscription in your App Store or Google Play account settings/);
+  assert.match(page, /customer record at RevenueCat/);
+  assert.match(page, /12 months after the subscription last expired or was refunded/);
 });
 
 test('privacy page explains GitHub Pages hosting', async () => {
@@ -98,7 +113,39 @@ test('privacy page explains GitHub Pages hosting', async () => {
   assert.match(page, /encrypted HTTPS connections/);
   assert.match(page, /access controls restrict each signed-in parent account to its own\s+family records/);
   assert.match(page, /does not store Google or Apple passwords/);
-  assert.match(page, /does not currently offer purchases or subscriptions/);
   assert.match(page, /Delete account/);
-  assert.match(page, /13 September 2026/);
+  assert.match(page, /1 October 2026/);
+});
+
+test('privacy page describes payments truthfully', async () => {
+  const page = await read('privacy/index.html');
+  assert.doesNotMatch(page, /does not currently offer purchases or subscriptions/);
+  assert.doesNotMatch(page, /There is no second copy anywhere else/);
+  assert.match(page, /Apple or Google takes the payment/);
+  assert.match(page, /never sees your card or bank\s+details/);
+  assert.match(page, /<strong>RevenueCat<\/strong>, a payment processor/);
+  assert.match(page, /RevenueCat does not receive your email address, your PIN, or anything\s+about your children/);
+  assert.match(page, /<li><strong>RevenueCat<\/strong> &mdash;/);
+  assert.match(page, /up to 7 days after it is confirmed, or 1 day if it is never\s+confirmed/);
+  assert.match(page, /the date your access is paid until/);
+  assert.match(page, /restricted record of the purchase's\s+app, store, environment and original transaction identifier/);
+  assert.match(page, /12 months after the subscription last\s+expired or was refunded/);
+  assert.match(page, /also deletes your customer record at RevenueCat/);
+  assert.match(page, /does not cancel your App Store or Google Play\s+subscription/);
+});
+
+test('no page says "maths"; Ontario says "math"', async () => {
+  const { readdir } = await import('node:fs/promises');
+  const pages = [];
+  const walk = async (dir) => {
+    for (const e of await readdir(new URL(`../${dir}`, import.meta.url), { withFileTypes: true })) {
+      if (['node_modules', '.git', 'test'].includes(e.name)) continue;
+      const rel = dir ? `${dir}/${e.name}` : e.name;
+      if (e.isDirectory()) await walk(rel);
+      else if (/\.(html|xml|txt|webmanifest|json|css|js|mjs)$/.test(e.name)) pages.push(rel);
+    }
+  };
+  await walk('');
+  assert.ok(pages.some((p) => p === 'privacy/index.html') && pages.some((p) => p === 'index.html'), 'scan found the pages');
+  for (const f of pages) assert.doesNotMatch(await read(f), /\bmaths\b/i, f);
 });
